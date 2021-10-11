@@ -1,0 +1,16 @@
+# Ignore everything
+*
+
+# But not these files...
+!.gitignore
+!create_new_assembly_script.sh
+!.make_make_and_execute.sh
+
+# # etc...
+
+# # ...even if they are in subdirectories
+# !*/
+
+# # if the files to be tracked are in subdirectories
+# !*/a/b/file1.txt
+# !*/a/b/c/*
