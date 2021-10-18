@@ -16,4 +16,8 @@ _start:
     mov rdx, 16         ; storage length
     syscall
 
-    mov rax, 1          ; 
+    mov rax, 1          ; write 1 into rax register -> 
+    mov rdi, 1          ; 
+    mov rdx, len
+    
+    syscall             ; is reading out 

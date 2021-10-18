@@ -14,6 +14,6 @@ echo "echo ... > file"
 echo "
 ;  Author : created by script $me
 ;  Description     : empty assembler script 
-;  to create Makefile, make, run all at once    : ./$mmae_scriptname 
+;  to create Makefile, make, run all at once    : ./$mmae_scriptname.sh 
 
 "> $1/$1.asm
