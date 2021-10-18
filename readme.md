@@ -1047,3 +1047,5 @@ cd my_new_test_script
 
  [./syscall_64.tbl.html](./syscall_64.tbl.html)
 <iframe src="./syscall_64.tbl.html">
+# license
+[![License: WTFPL](https://img.shields.io/badge/License-WTFPL-brightgreen.svg)](http://www.wtfpl.net/about/)
