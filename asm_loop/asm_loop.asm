@@ -19,8 +19,8 @@ _start:
     mov rsi, variable_name_for_string1
     L1:
     mov rax, 1 ; this tells the system to get ready to write out syscall number for sys_write  
-    mov rdi, 1 ; this 
-    agitPrx rsi, 10
+    mov rdi, 65 ; this 
+    mov rsi, 10
     mov rdx, 2 ; moves the length of the string into register rdx
     syscall ; make syscall to execute 
     dec al 
