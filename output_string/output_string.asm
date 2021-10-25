@@ -18,4 +18,4 @@ _start:   mov       rax, 1                  ; system call for write
           syscall                           ; invoke operating system to exit
 
           section   .data
-message:  db        "aBcDeFgHiJkLmNOpQrStUvWxYz", 1      ; note the newline at the end
+message:  db        "aBcDeFgHiJkLmNOpQrStUvWxYz\n"
