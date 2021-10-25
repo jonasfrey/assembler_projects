@@ -22,7 +22,7 @@ if (($asm_file_counter > 1)) || (($asm_file_counter == 0)); then
     then
         echo $msg_provide_file_name
     fi
-if
+fi
 
 IFS='/' read -ra slashes_array <<< "$asm_file_name"
 IFS='.' read -ra dots_array <<< "${slashes_array[-1]}"
@@ -53,15 +53,28 @@ $file_name.o:
 
 clean:
 	rm -f $file_name
-	rm -f $file_name.o 
+	rm -f $file_name.o
 
 " > ./Makefile
 
-echo "===================="
+echo "========= delete binary and .o file ==========="
+
+rm  ./$file_name
+rm  ./$file_name.o
+
+echo "========= make ==========="
 echo "-@-$ make"
 
 make
 
+
+echo "========== chmod binary =========="
+echo "-@-$ chmod +x ./$file_name"
+
 chmod +x ./$file_name
+
+
+echo "=========== run binary ========="
+echo "-@-$ ./$file_name"
 
 ./$file_name
