@@ -22,6 +22,7 @@ if (($asm_file_counter > 1)) || (($asm_file_counter == 0)); then
     then
         echo $msg_provide_file_name
     fi
+if
 
 IFS='/' read -ra slashes_array <<< "$asm_file_name"
 IFS='.' read -ra dots_array <<< "${slashes_array[-1]}"
