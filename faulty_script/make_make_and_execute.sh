@@ -1,3 +1,4 @@
+#!/bin/bash
 msg_provide_file_name="please provide filename './make_make.sh file_name_here"\'
 search_dir=.
 asm_file_counter=0
@@ -48,8 +49,6 @@ for i in "${dots_array[@]}"; do
     
 done
 
-
-
 echo "
 $file_name: $file_name.o
 	ld -o $file_name $file_name.o
@@ -61,6 +60,9 @@ clean:
 	rm -f $file_name.o 
 
 " > ./Makefile
+
+echo "===================="
+echo "-@-$ make"
 
 make
 
