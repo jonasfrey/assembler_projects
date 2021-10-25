@@ -9,6 +9,16 @@ cd my_new_test_script
 # make and execute 
 ./make_make_and_execute.sh
 ```
+# registers
+|name/use       |64-bit     |32-bit     |16-bit     |8-bit High/Low (H/L)       |
+|---            |---        |---        |---        |---                        |
+|accumulator    |rax        |eax        |ax         |ah/al                      |
+|counter        |rcx        |ecx        |cx         |ch/cl                      |
+|data           |rdx        |edx        |dx         |dh/dl                      |
+|base           |rbx        |edx        |bx         |bh/bl                      |
+
+
+
 
 # syscall helper 
  
