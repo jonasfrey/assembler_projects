@@ -150,16 +150,17 @@ handle_rest_in_byte:
     
     push rbx
     push r14 
-    ; the counter is 'falsly' to high 
-    dec r14
+    
     mov rax, 2
     mul r14     ; 2 * counter, 2*0, 2*1, 2*2
-    add rax, 2  ; formula is 2 + 2*0 = 2, 2 + 2*1 = 4 , 2 + 2*2 = 6
-    ;            ;rax holds now the amount of how many bits we have to shfit to the rightc
-    mov rbx, 6
-    sub rbx, rax    ; 6 - 2 = 4, or  6-4 = 2
-                    ; rbx holds now shiftleft for rest
-    shl r10b, 4 
+
+    mov r14, 6
+    sub r14, rax
+
+    mov rcx, r14
+    shl r10, cl
+    ;; 'a' shift 4 . 6 - 1*2 = 4
+    ;; 'aa' shift 2 . 6 - 2*2 = 2
     
     mov rbx,63      ; r10 -> 0011 1111 , bitmask 
     and r10, rbx     ; our r9 holds now the base64 decimal value, for the current (last) byte
