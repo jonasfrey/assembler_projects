@@ -56,17 +56,39 @@ _start:
     mul rbx
     call custom_print_num_rax
 
+    mov rax, 0 
+    call custom_print_num_rax
+    mov rax, 0 
+    call custom_print_num_rax
+    mov rax, 0 
+    call custom_print_num_rax
+
+
+    mov ax, 13              ; 16-bit dividend
+    mov bl, 5               ; 8-bit divisor
+                            ; quotient goes to al register
+                            ; remainder goes to ah register
+    div bl
+                            ; ah = 13 modulo 5
+ 
+    ; rax already containing ax 
+    ;mov r12, ah
+    ;shr ah, 8
+    mov al, ah                  ; move the remaineder/modulo result into al
+    call custom_print_num_rax   ; 
+    
+
     ; 5 / 2 = (2.5 ) 2, rest 1
     ; remainder will be in rdx 
-    mov rax, 5
-    mov rbx, 2 
-    div rbx 
-
-    
+    mov ax, 94
+    mov bl, 10
+    div bl
     call custom_print_num_rax
-    
+    mov al, ah
+    call custom_print_num_rax
+
     mov rax, 9 
-    mov rbx, 2
+    mov rbx, 3
     div rbx             ; 9 % 3 -> 0 
                         ; rdx will be 0
     mov rax, rdx
@@ -76,8 +98,10 @@ _start:
 
     ; shift bits to right 
     ; 0111 -> 0011 , shr 1
+    mov rcx, 1
+
     mov rax, 7 
-    shr rax, 1 
+    shr rax, cl     ; rcx hold number 1
     call custom_print_num_rax
 
     ; shift bits to left 
@@ -86,6 +110,38 @@ _start:
     shl rax, 1
     call custom_print_num_rax
 
+    ; bitwise and 
+    ; instruction 
+    ; and reg1, reg2
+    ;             reg1: 	0101
+    ;             reg2: 	0011
+    ;----------------------------
+    ;After AND -> reg1:	    0001
+    mov rax, 5
+    mov rbx, 3 
+    and rax, rbx
+    ; rax should be 0001 -> 1
+    call custom_print_num_rax
+
+    mov rax, 9          ; 1001
+    mov rbx, 8          ; 1000
+    and rax, rbx
+    ;rax should be        1000 -> 8
+    call custom_print_num_rax
+
+    ; bitwise or 
+    ; instruction 
+    ; or reg1, reg2
+    ;            reg1:     0101
+    ;            reg2:     0011
+    ;----------------------------
+    ;After OR -> reg1:     0111
+    
+    mov rax, 5          ; 0101
+    mov rbx, 3          ; 0011
+    or  rax, rbx
+    ;rax should be        0111 -> 7
+    call custom_print_num_rax
 
     mov rax, 60
     mov rdi, 0

@@ -45,8 +45,8 @@ print_rax_string:
 print_rax_string_loop:
     inc rax             ; increment start index of string
     inc rbx             ; increment loop counter for length
-
-    mov cl, [rax]       ; mov value into bl
+    
+    mov cl, [rax]       ; mov value into cl
     
     cmp cl, 0
     jg print_rax_string_loop
@@ -55,7 +55,7 @@ print_rax_string_loop:
 
     mov rax, 1 
     mov rdi, 1 
-    pop rsi         
+    pop rsi          ; we pushed the address /starindex of the string onto stack before, so we can pop it into rsi now      
     mov rdx, rbx    ; rbx holds the length of the string now
     syscall 
 
